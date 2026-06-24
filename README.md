@@ -2,12 +2,10 @@
 
 ## Skład zespołu
 
-| Imię         | Rola                        |
-|--------------|-----------------------------|
-| _Placeholder_ | Programista backendu        |
-| _Placeholder_ | Programista backendu        |
-| _Placeholder_ | Tester / QA                 |
-| _Placeholder_ | Architekt systemu           |
+| Imię               | Rola                        |
+|--------------------|-----------------------------|
+| Jakub Jaczewski    | Programista backendu        |
+| Juliusz Kossak     | Architekt systemu           |
 
 ## Opis projektu
 
@@ -54,15 +52,11 @@ pytest tests/ -v
 Do realizacji projektu wykorzystano narzędzie **Cursor** z modelem **Claude Sonnet 4.5**.
 
 **Zakres użycia:**
-- Generowanie szkieletu kodu (models.py, server.py, client.py)
-- Pisanie testów jednostkowych, integracyjnych i E2E
+- Generowanie szkieletu serwera TCP (`server.py`) — obsługa gniazd i pętla akceptacji połączeń
 - Debugowanie wielowątkowości i protokołu binarnego
+- Pisanie testów jednostkowych
 
 **Przykładowy prompt użyty do generacji:**
-"Napisz kompletny projekt Python — aplikacja klient-serwer symulująca
-Miejskie Centrum Usług. MODELE: Mieszkaniec, Wniosek, Urzednik [@dataclass].
-SERWER: MAX_CLIENTS=3, threading.Semaphore, pickle + 4-bajtowy prefix binarny.
-KLIENT: generator expression, isinstance check, ClassCastException handling.
-TESTY: pytest, 3x unit, 3x integration, 3x E2E z fixture."
-
-Wygenerowany kod został przejrzany i zrozumiany przez zespół.
+> „Napisz klasę MCUServer w Pythonie obsługującą do 3 jednoczesnych połączeń TCP
+> przy użyciu `threading.Semaphore`. Dane przesyłaj przez gniazdo jako bajty
+> serializowane przez `pickle` z 4-bajtowym nagłówkiem długości (big-endian, `struct.pack('>I', ...)`)."
