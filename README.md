@@ -51,7 +51,18 @@ pytest tests/ -v
 
 ## Deklaracja użycia AI
 
-Do wygenerowania szkieletu projektu, testów jednostkowych/integracyjnych/e2e
-oraz debugowania mechanizmów wielowątkowości (semafory, wątki demona, poprawne
-zamykanie gniazd) wykorzystano **Cursor (Claude Sonnet 4.6)**. Cały wygenerowany
-kod został przejrzany i zaakceptowany przez zespół przed włączeniem do repozytorium.
+Do realizacji projektu wykorzystano narzędzie **Cursor** z modelem **Claude Sonnet 4.5**.
+
+**Zakres użycia:**
+- Generowanie szkieletu kodu (models.py, server.py, client.py)
+- Pisanie testów jednostkowych, integracyjnych i E2E
+- Debugowanie wielowątkowości i protokołu binarnego
+
+**Przykładowy prompt użyty do generacji:**
+"Napisz kompletny projekt Python — aplikacja klient-serwer symulująca
+Miejskie Centrum Usług. MODELE: Mieszkaniec, Wniosek, Urzednik [@dataclass].
+SERWER: MAX_CLIENTS=3, threading.Semaphore, pickle + 4-bajtowy prefix binarny.
+KLIENT: generator expression, isinstance check, ClassCastException handling.
+TESTY: pytest, 3x unit, 3x integration, 3x E2E z fixture."
+
+Wygenerowany kod został przejrzany i zrozumiany przez zespół.
