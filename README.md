@@ -49,7 +49,7 @@ pytest tests/ -v
 
 ## Deklaracja użycia AI
 
-Do realizacji projektu wykorzystano narzędzie **Cursor** z modelem **Claude Sonnet 4.5**.
+Do realizacji projektu wykorzystano narzędzie **Cursor** z modelem **Claude Sonnet 4.6**.
 
 **Zakres użycia:**
 - Generowanie szkieletu serwera TCP (`server.py`) — obsługa gniazd i pętla akceptacji połączeń
